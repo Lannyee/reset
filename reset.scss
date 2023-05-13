@@ -1,0 +1,177 @@
+/**
+ * @author Lanny
+ * @time 2021.11.30
+ * @desc 复位样式
+ */
+
+
+
+@import './public.scss';
+
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    height: 100%;
+    background: #fff;
+    max-width: $maxWidth;
+    min-width: $minWidth;
+    overflow-x: auto;
+    margin: 0 auto;
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @include fontStyle;
+}
+
+h1,
+h2,
+h3 {
+    @include fontStyle(inherit, 28px, 36px);
+}
+
+h4,
+h5,
+h6 {
+    @include fontStyle(inherit, 24px, 32px);
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    border: none;
+    outline: none;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    font-size: inherit;
+    color: inherit;
+    &:hover {
+        color: inherit;
+    }
+}
+
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+input,
+textarea,
+button {
+    background: none;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+input,
+textarea {
+    @include placeholderColor;
+}
+
+button {
+    cursor: pointer;
+}
+
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected {
+    -webkit-text-fill-color: inherit !important;
+    transition: background-color 99999999s !important;
+}
+
+.center {
+    width: $centerWidth;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: $centerWidth) {
+    .center {
+        width: 100%;
+        padding: 0 $space;
+    }
+}
+
+.picture {
+    position: relative;
+    overflow: hidden;
+    img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}
+
+.iconfont {
+    @include fontStyle(inherit, inherit, inherit);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    @extend .flex;
+    @extend .flex-row-center;
+    @extend .flex-column-center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-row-center {
+    justify-content: center;
+}
+
+.flex-row-start {
+    justify-content: flex-start;
+}
+
+.flex-row-end {
+    justify-content: flex-end;
+}
+
+.flex-row-between {
+    justify-content: space-between;
+}
+
+.flex-column-center {
+    align-items: center;
+}
+
+.flex-column-start {
+    align-items: flex-start;
+}
+
+.flex-column-end {
+    align-items: flex-end;
+}
+
+.flex-occupy {
+    flex: 1;
+}

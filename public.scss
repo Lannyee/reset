@@ -1,0 +1,84 @@
+// 公共变量
+$color: #fff;
+$maxWidth: 100%;
+$minWidth: 320px;
+$centerWidth: 1200px;
+$space: 15px;
+
+
+
+// 公共方法
+// 文字默认样式
+@mixin fontStyle($color: #333, $fontSize: 14px, $lineHeight: 20px) {
+    color: $color;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+}
+
+// 单行文本溢出隐藏
+@mixin oneText() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// 多行文本溢出隐藏
+@mixin muchText($num, $lineH, $flag: 1) {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $num;
+    -webkit-box-orient: vertical;
+    @if ($flag == 1) {
+        height:  $num * $lineH;
+    } @else {
+        max-height: $num * $lineH;
+    }
+    line-height: $lineH;
+}
+
+// 定位居中
+@mixin positionCenter() {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+// 禁止选择
+@mixin noSelect() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+// 背景图
+@mixin backgroundImage($url, $size: cover) {
+    background-size: $size;
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+// placeholder
+@mixin placeholderColor($color: #999) {
+    &:-moz-placeholder,
+    &::-moz-placeholder,
+    &:-ms-input-placeholder,
+    &::-webkit-input-placeholder,
+    &::placeholder {
+        color: $color;
+    }
+}
+
+// hoverButton
+@mixin hoverButton() {
+    transition: opacity .15s;
+    &:hover {
+        opacity: .9;
+    }
+}
