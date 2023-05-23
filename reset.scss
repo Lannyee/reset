@@ -1,5 +1,6 @@
 /**
  * @author Lanny
+ * @email 728106945@qq.com
  * @time 2021.11.30
  * @desc 复位样式
  */
@@ -32,18 +33,6 @@ body {
     @include fontStyle;
 }
 
-h1,
-h2,
-h3 {
-    @include fontStyle(inherit, 28px, 36px);
-}
-
-h4,
-h5,
-h6 {
-    @include fontStyle(inherit, 24px, 32px);
-}
-
 ul,
 ol {
     list-style: none;
@@ -65,7 +54,6 @@ a {
         color: inherit;
     }
 }
-
 
 table {
     border-spacing: 0;
@@ -89,6 +77,7 @@ textarea {
 
 button {
     cursor: pointer;
+    @include hoverButton;
 }
 
 input:-internal-autofill-previewed,
@@ -113,17 +102,12 @@ input:-internal-autofill-selected {
     position: relative;
     overflow: hidden;
     img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
+        @include positionCenter;
     }
 }
 
 .iconfont {
-    @include fontStyle(inherit, inherit, inherit);
+    @include fontStyle(inherit, inherit);
 }
 
 .flex {
